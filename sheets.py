@@ -151,7 +151,7 @@ def procesar_descripcion(texto):
         item_limpio = item.strip()
         if item_limpio:
             if not item_limpio.startswith('•'):
-                item_limpio = f"• {item_limpio}"
+                item_limpio = f" {item_limpio}"
             items_limpios.append(item_limpio)
     return items_limpios if items_limpios else ['Sin información disponible']
 
@@ -225,3 +225,4 @@ def diagnostico():
 # Inicialización
 print("🚀 Inicializando módulo de Google Sheets...")
 conectar_google_sheets()
+
