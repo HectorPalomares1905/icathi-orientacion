@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Resultados - ICATHI 4.0</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .top-bar {
+            background: white;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .user-info {
+            color: #3d5a96;
+            font-weight: 600;
+        }
+        
+        .btn-logout {
+            background: #d05a7e;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: opacity 0.2s;
+        }
+        
+        .btn-logout:hover {
+            opacity: 0.8;
+        }
+        
+        .alert {
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin: 20px;
+            font-size: 14px;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .alert-info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div class="user-info">
+             {{ data.nombre }}
+        </div>
+        <a href="{{ url_for('logout') }}" class="btn-logout">Cerrar Sesión</a>
+    </div>
+    
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-text">ICATHI 4.0</div>
+        <div class="hashtag">#Soy4.0</div>
+    </header>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Título del documento -->
+        <div class="welcome-card">
+            <h1>TEST VOCACIONAL</h1>
+            <p class="date">{{ data.fecha }}</p>
+        </div>
+
+        <!-- Información del taller -->
+        <div class="info-section">
+            <p class="intro-text">
+                ICATHI 4.0 comprometido con la educación, ha generado este Taller de Orientación Vocacional.
+            </p>
+            <p class="intro-text">
+                <strong>Test aplicados en base a las respuestas contestadas de la siguiente persona:</strong>
+            </p>
+            
+            <div class="student-info">
+                <p><strong>Nombre:</strong> {{ data.nombre }}</p>
+                <p><strong>Edad:</strong> {{ data.edad }} años</p>
+                <p><strong>Escolaridad:</strong> {{ data.escolaridad }}</p>
+            </div>
+        </div>
+
+        <!-- Exámenes aplicados -->
+        <div class="info-section">
+            <h2 class="section-title">Exámenes aplicados:</h2>
+            
+            <div class="exam-description">
+                <h3 class="exam-number">1. Test de Aptitudes e Intereses Vocacionales</h3>
+                <p>La aptitud es la habilidad innata o adquirida para efectuar una determinada actividad.</p>
+                <p>Intereses vocacionales son las áreas de actividades, industrias o campos en los que una persona muestra un genuino entusiasmo y curiosidad.</p>
+            </div>
+
+            <div class="exam-description">
+                <h3 class="exam-number">2. Test de Inteligencias Múltiples</h3>
+                <p>La inteligencia no se limita a una sola capacidad general, sino que abarca una variedad de habilidades cognitivas que poseemos todas y todos las cuales son: verbal/lingüística, lógica/matemática, visual/espacial, corporal/cinestésica, musical/rítmica, intrapersonal e interpersonal.</p>
+            </div>
+
+            <div class="exam-description">
+                <h3 class="exam-number">3. Test de Orientación Vocacional</h3>
+                <p>Es una serie de pruebas que busca indagar diversos aspectos sobre la persona para facilitar la comprensión de sus propios intereses, habilidades, aptitudes, áreas de conocimiento, entre otros aspectos, con el fin de ayudar en la elección de oficio, carrera técnica y licenciatura.</p>
+            </div>
+        </div>
+
+        <!-- Resultados de los Test -->
+        <div class="info-section">
+            <h2 class="section-title">Resultados de los Test:</h2>
+
+            <!-- Test 1: Aptitudes e Intereses -->
+            <div class="result-card">
+                <h3 class="result-title">1. Test de Aptitudes e Intereses</h3>
+                <div class="graph-placeholder">
+                    <p style="text-align:center; color:#999; padding:40px;">[Gráfica de Aptitudes e Intereses]</p>
+                </div>
+                <div class="description-box aptitudes">
+                    {% for item in data.aptitudes %}
+                    <p style="margin-bottom: 10px;">• {{ item }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Test 2: Inteligencias Múltiples -->
+            <div class="result-card">
+                <h3 class="result-title">2. Test de Inteligencias Múltiples</h3>
+                <div class="graph-placeholder">
+                    <p style="text-align:center; color:#999; padding:40px;">[Gráfica de Inteligencias Múltiples]</p>
+                </div>
+                <div class="description-box inteligencias">
+                    {% for item in data.inteligencias %}
+                    <p style="margin-bottom: 10px;">• {{ item }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Test 3: Orientación Vocacional (Kuder) -->
+            <div class="result-card">
+                <h3 class="result-title">3. Test de Orientación Vocacional</h3>
+                <div class="graph-placeholder">
+                    <p style="text-align:center; color:#999; padding:40px;">[Gráfica de Test de Kuder]</p>
+                </div>
+                <div class="description-box kuder">
+                    {% for item in data.kuder %}
+                    <p style="margin-bottom: 10px;">• {{ item }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Carreras recomendadas -->
+        <div class="info-section">
+            <p class="careers-intro">
+                De acuerdo a las pruebas aplicadas, en el siguiente recuadro se muestran algunas profesiones o carreras técnicas que podrás elegir.
+            </p>
+            
+            <div class="careers-grid">
+                {% for carrera in data.carreras %}
+                <div class="career-card">{{ carrera }}</div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Nota final -->
+        <div class="final-note">
+            <p>Los test aplicados son de alta confiabilidad y su propósito es brindar orientación a quienes soliciten este apoyo.</p>
+        </div>
+
+        <!-- Referencias -->
+        <div class="info-section">
+            <h3 class="references-title">Referencias:</h3>
+            <ul class="references-list">
+                <li><em>Test de las Inteligencias Múltiples (H. Gardner)</em>, <a href="https://www.rmm.cl/sites/default/files/usuarios/mcocha/doc/201003271337320.test-de-inteligencias-multiples.pdf" target="_blank">TEST INTELIG[1]. MULTIPLE (rmm.cl)</a></li>
+                <li><em>Inventario de Aptitudes e Intereses (Ismael Vidales Delgado)</em>. <a href="https://www.studocu.com/es-mx/document/universidad-de-las-californias/psychology/inventarios-de-aptitudes-e-intereses-de-ismael-vidales-delgado/8655407" target="_blank">Inventarios-de-Aptitudes-e-Intereses-de-Ismael-Vidales-Delgado - Inventarios de Aptitudes e - Studocu</a></li>
+                <li><em>Manual impreso: G. Frederi (reimpresión, 2021). Manual Moderno Kuder Escala de Preferencias Vocacional. Ciudad de México. Ediciones Pedagógicas Latino americanas Ltda.</em></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 ICATHI 4.0 - Instituto de Capacitación para el Trabajo del Estado de Hidalgo</p>
+    </footer>
+</body>
+</html>

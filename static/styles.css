@@ -1,0 +1,650 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #3d5a96 0%, #e8755c 50%, #d05a7e 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(90deg, 
+        #3d5a96 0%, 
+        #3d5a96 12%, 
+        #e8755c 12%, 
+        #e8755c 25%, 
+        #3d5a96 25%, 
+        #3d5a96 37%, 
+        #d05a7e 37%, 
+        #d05a7e 50%, 
+        #e8755c 50%, 
+        #e8755c 62%, 
+        white 62%, 
+        white 75%, 
+        #d05a7e 75%, 
+        #d05a7e 87%, 
+        #3d5a96 87%, 
+        #3d5a96 100%
+    );
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        transparent 0%, 
+        transparent 15%,
+        rgba(232, 117, 92, 0.3) 15%,
+        rgba(232, 117, 92, 0.3) 30%,
+        transparent 30%,
+        transparent 45%,
+        rgba(61, 90, 150, 0.3) 45%,
+        rgba(61, 90, 150, 0.3) 60%,
+        transparent 60%
+    );
+}
+
+.logo-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.hashtag {
+    font-size: 22px;
+    color: rgb(242, 84, 84);
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+}
+
+/* Contenedor principal */
+.container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Tarjeta de bienvenida */
+.welcome-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.welcome-card h1 {
+    color: #3d5a96;
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.welcome-card .date {
+    color: #666;
+    font-size: 16px;
+}
+
+/* Secciones de información */
+.info-section {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.intro-text {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.student-info {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #3d5a96;
+}
+
+.student-info p {
+    color: #3d5a96;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.student-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* Títulos de sección */
+.section-title {
+    color: #3d5a96;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Descripciones de exámenes */
+.exam-description {
+    margin-bottom: 25px;
+}
+
+.exam-description:last-child {
+    margin-bottom: 0;
+}
+
+.exam-number {
+    color: #d05a7e;
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.exam-description p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.exam-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Tarjetas de resultados */
+.result-card {
+    margin-bottom: 35px;
+}
+
+.result-card:last-child {
+    margin-bottom: 0;
+}
+
+.result-title {
+    color: #e8755c;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.graph-placeholder {
+    background: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 40px 20px;
+    text-align: center;
+    color: #999;
+    margin-bottom: 20px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cajas de descripción de resultados */
+.description-box {
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.description-box.aptitudes {
+    background: #f8f9fa;
+    border-left: 4px solid #e8755c;
+}
+
+.description-box.inteligencias {
+    background: #f8f9fa;
+    border-left: 4px solid #3d5a96;
+}
+
+.description-box.kuder {
+    background: #f8f9fa;
+    border-left: 4px solid #d05a7e;
+}
+
+/* Carreras recomendadas */
+.careers-intro {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.careers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.career-card {
+    background: linear-gradient(135deg, #d05a7e 0%, #e8755c 100%);
+    color: white;
+    padding: 20px 15px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.career-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Nota final */
+.final-note {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.final-note p {
+    color: #666;
+    line-height: 1.6;
+    font-style: italic;
+    font-size: 15px;
+}
+
+/* Referencias */
+.references-title {
+    color: #3d5a96;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.references-list {
+    color: #666;
+    line-height: 1.8;
+    padding-left: 25px;
+}
+
+.references-list li {
+    margin-bottom: 12px;
+}
+
+.references-list li:last-child {
+    margin-bottom: 0;
+}
+
+.references-list a {
+    color: #3d5a96;
+    text-decoration: none;
+}
+
+.references-list a:hover {
+    text-decoration: underline;
+    color: #e8755c;
+}
+
+/* Footer */
+.footer {
+    background: white;
+    padding: 15px;
+    text-align: center;
+    color: #3d5a96;
+    font-size: 12px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+    margin-top: auto;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - ICATHI 4.0
+   ============================================ */
+
+/* ========== MÓVILES PEQUEÑOS (320px - 480px) ========== */
+@media (max-width: 480px) {
+    .header {
+        padding: 12px 10px;
+    }
+    
+    .logo-text {
+        font-size: 20px;
+    }
+    
+    .hashtag {
+        font-size: 16px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .welcome-card {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+    }
+    
+    .welcome-card h1 {
+        font-size: 24px;
+    }
+    
+    .info-section {
+        padding: 18px;
+        margin-bottom: 20px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .exam-number {
+        font-size: 16px;
+    }
+    
+    .result-title {
+        font-size: 18px;
+    }
+    
+    .careers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .career-card {
+        font-size: 14px;
+    }
+    
+    .footer {
+        padding: 12px;
+        font-size: 11px;
+    }
+}
+
+/* ========== MÓVILES MEDIANOS (481px - 767px) ========== */
+@media (min-width: 481px) and (max-width: 767px) {
+    .container {
+        padding: 18px;
+    }
+    
+    .welcome-card {
+        padding: 25px 18px;
+    }
+    
+    .welcome-card h1 {
+        font-size: 28px;
+    }
+    
+    .careers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========== TABLETS PORTRAIT (768px - 991px) ========== */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        max-width: 700px;
+        padding: 25px;
+    }
+    
+    .header {
+        padding: 18px 20px;
+    }
+    
+    .logo-text {
+        font-size: 26px;
+    }
+    
+    .welcome-card {
+        padding: 35px 25px;
+    }
+    
+    .welcome-card h1 {
+        font-size: 32px;
+    }
+    
+    .info-section {
+        padding: 25px;
+    }
+    
+    .section-title {
+        font-size: 26px;
+    }
+    
+    .careers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer {
+        padding: 18px;
+        font-size: 13px;
+    }
+}
+
+/* ========== TABLETS LANDSCAPE Y LAPTOPS PEQUEÑAS (992px - 1199px) ========== */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        max-width: 900px;
+        padding: 30px 40px;
+    }
+    
+    .header {
+        padding: 20px 30px;
+    }
+    
+    .logo-text {
+        font-size: 28px;
+    }
+    
+    .hashtag {
+        font-size: 24px;
+    }
+    
+    .welcome-card {
+        padding: 40px 30px;
+    }
+    
+    .welcome-card h1 {
+        font-size: 34px;
+    }
+    
+    .info-section {
+        padding: 30px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .careers-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .career-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .footer {
+        padding: 20px;
+        font-size: 14px;
+    }
+}
+
+/* ========== LAPTOPS Y DESKTOPS (1200px+) ========== */
+@media (min-width: 1200px) {
+    body {
+        background-attachment: fixed;
+    }
+    
+    .container {
+        max-width: 1000px;
+        padding: 40px 50px;
+    }
+    
+    .header {
+        padding: 22px 40px;
+    }
+    
+    .logo-text {
+        font-size: 30px;
+    }
+    
+    .hashtag {
+        font-size: 26px;
+    }
+    
+    .welcome-card {
+        padding: 50px 40px;
+    }
+    
+    .welcome-card h1 {
+        font-size: 36px;
+    }
+    
+    .info-section {
+        padding: 35px;
+    }
+    
+    .section-title {
+        font-size: 30px;
+    }
+    
+    .careers-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .career-card {
+        transition: all 0.3s;
+    }
+    
+    .career-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    
+    .footer {
+        padding: 25px;
+        font-size: 14px;
+    }
+}
+
+/* ========== MONITORES GRANDES Y 4K (1920px+) ========== */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1400px;
+        padding: 50px 80px;
+    }
+    
+    .header {
+        padding: 25px 60px;
+    }
+    
+    .logo-text {
+        font-size: 32px;
+    }
+    
+    .hashtag {
+        font-size: 28px;
+    }
+    
+    .welcome-card {
+        padding: 60px 50px;
+    }
+    
+    .welcome-card h1 {
+        font-size: 40px;
+    }
+    
+    .info-section {
+        padding: 40px;
+    }
+    
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .careers-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    
+    .footer {
+        padding: 30px;
+        font-size: 15px;
+    }
+}
+
+/* ========== ORIENTACIÓN LANDSCAPE EN MÓVILES ========== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: 15px;
+    }
+    
+    .welcome-card {
+        padding: 20px 15px;
+    }
+    
+    .welcome-card h1 {
+        font-size: 22px;
+    }
+    
+    .info-section {
+        padding: 15px;
+    }
+    
+    .footer {
+        padding: 10px;
+    }
+}
+
+/* ========== MODO IMPRESIÓN ========== */
+@media print {
+    body {
+        background: white;
+    }
+    
+    .header {
+        background: #3d5a96 !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    .info-section {
+        page-break-inside: avoid;
+    }
+    
+    .result-card {
+        page-break-inside: avoid;
+    }
+}
